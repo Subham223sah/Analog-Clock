@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #clockContainer {
+    position: relative;
+    margin: auto;
+    height: 40vw;
+    width: 40vw;
+    background: url(https://png.pngtree.com/png-vector/20231008/ourmid/pngtree-antique-clock-face-without-hands-retro-png-image_10092194.png) no-repeat;
+    background-size: 100%;
+    
+}
+ 
+#hour,
+#minute,
+#second {
+    position: absolute;
+    background: black;
+    border-radius: 10px;
+    transform-origin: bottom;
+}
+ 
+#hour {
+    width: 1.8%;
+    height: 25%;
+    top: 25%;
+    left: 48.85%;
+    opacity: 0.8;
+}
+ 
+#minute {
+    width: 1.6%;
+    height: 30%;
+    top: 19%;
+    left: 48.9%;
+    opacity: 0.8;
+}
+ 
+#second {
+    width: 1%;
+    height: 40%;
+    top: 9%;
+    left: 49.25%;
+    opacity: 0.8;
+}
+    </style>
+</head>
+<body>
+    
+    <div id="clockContainer">
+        <div id="hour"></div>
+        <div id="minute"></div>
+        <div id="second"></div>
+    </div>
+
+    <script>
+        setInterval(() => {
+	const d = new Date(); //object of date()
+	const hr = d.getHours();
+	const min = d.getMinutes();
+	const sec = d.getSeconds();
+	const hr_rotation = 30 * hr + min / 2; //converting current time
+	const min_rotation = 6 * min;
+	const sec_rotation = 6 * sec;
+
+	hour.style.transform = `rotate(${hr_rotation}deg)`;
+	minute.style.transform = `rotate(${min_rotation}deg)`;
+	second.style.transform = `rotate(${sec_rotation}deg)`;
+}, 1000);
+
+    </script>
+</body>
+</html>
